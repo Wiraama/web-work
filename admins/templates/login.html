@@ -3,12 +3,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width= device-width, initial-scale = 1.0">
-		<title>Register</title>
+		<title>Login</title>
 		<link rel="stylesheet" herf={{ "url_for('static', filename='style.css')" }}>
 		<style>
 			@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-        * {
-            margin: 0;
+			* {
+				margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Quicksand', sans-serif;
@@ -165,14 +165,14 @@
 
 	</head>
 	<body>
-		<h1>Register</h1>
+		<h1>Login</h1>
 		<form method= "post">
 			<label for="username">Username:</label>
 			<input type="text" id="username" name="username" required><br>
 			<label for="password">Password:</label>
 			<input type="password" id="password" name="password" required><br>
-			<input type="submit" value="register">
+			<input type="submit" value="login">
 		</form>
-		<p>Have account? <a href="{{ url_for('login') }}">Login here</a></p>
+		<p>Do not have account? <a href="{{ url_for('register') }}">Register</a></p>
 	</body>
 </html>
