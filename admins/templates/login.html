@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang = "en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width= device-width, initial-scale = 1.0">
-		<title>Register</title>
-		<link rel="stylesheet" herf={{ "url_for('static', filename='style.css')" }}>
-		<style>
-			@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  <!-- Corrected 'href' -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
         * {
             margin: 0;
             padding: 0;
@@ -135,7 +135,7 @@
         }
         .signin .content .form .links a:nth-child(2) {
             color: #0f0;
-		font-weight: 600;
+            font-weight: 600;
         }
         .signin .content .form .inputBox input[type="submit"] {
             padding: 10px;
@@ -161,18 +161,27 @@
                 height: calc(20vw - 2px);
             }
         }
-		</style>
-
-	</head>
-	<body>
-		<h1>Register</h1>
-		<form method= "post">
-			<label for="username">Username:</label>
-			<input type="text" id="username" name="username" required><br>
-			<label for="password">Password:</label>
-			<input type="password" id="password" name="password" required><br>
-			<input type="submit" value="register">
-		</form>
-		<p>Have account? <a href="{{ url_for('login') }}">Login here</a></p>
-	</body>
+    </style>
+</head>
+<body>
+    <section>
+        <div class="signin">
+            <div class="content">
+                <h2>Register</h2>
+                <form method="post" class="form">
+                    <div class="inputBox">
+                        <input type="text" id="username" name="username" required>
+                        <i>Username</i>
+                    </div>
+                    <div class="inputBox">
+                        <input type="password" id="password" name="password" required>
+                        <i>Password</i>
+                    </div>
+                    <input type="submit" value="Register">
+                </form>
+                <p class="links">Have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+            </div>
+        </div>
+    </section>
+</body>
 </html>
