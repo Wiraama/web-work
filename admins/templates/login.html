@@ -22,23 +22,31 @@
         <div class="signin">
             <div class="content">
 				<h1>Welcome To Admins</h1>
-                <h2>Register</h2>
-                <form action="/register" method="post" class="form">
-                    <div class="inputBox">
-                        <label for="username">Username</label>
-                        <input type="text" id="username" name="username" required>
-                    </div>
-                    <div class="inputBox">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
+				<h2>LogIn</h2>
+				<form action="/login" method="post" class="form">
 					<div class="inputBox">
-						<input type="submit" value="Register">
+						<label for="username">Username</label>
+						<input type="text" id="username" name="username" required>
 					</div>
-                </form>
-				<p><a href="{{ url_for('login') }}">Sign In</a></p>
+					<div class="inputBox">
+						<label for="password">Password</label>
+						<input type="password" id="password" name="password" required>
+					</div>
+					<div class="inputBox">
+						<input type="submit" value="Login">
+					</div>
+				</form>
+				<p><a href="{{ url_for('register') }}">Sign Up</a></p>
             </div>
         </div>
     </section>
+	<footer>
+        <div class="footer-content">
+            <p>Designed by Wiriama</p>
+            <p>Contact: wiriama@example.com</p>
+            <p>Phone: +123 456 7890</p>
+            <p>Address: 1234 Elm Street, Springfield</p>
+        </div>
+    </footer>
 </body>
 </html>

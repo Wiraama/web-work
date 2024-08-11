@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
+from werkzeug.security import generate_password_hash, check_password_hash
 import os
 
 
@@ -11,6 +12,9 @@ users = {}
 
 @app.route('/')
 def home():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+
     """ the render_template help to link with html files """
     return render_template('home.html')
 
@@ -21,11 +25,13 @@ def login():
         username = request.form['username']
         password = request.form['password']
         user = users.get(username)
-        if user and user['password'] == password:
+        if user and check_password_hash(user['password'], password):
+            session['username'] = username
             flash('Logged successfully', 'success')
             return redirect(url_for('home'))
         else:
-            flash('Invalid details', 'danger')
+            flash('Invalid details, proceed to register kindly', 'danger')
+
     return render_template('login.html')
 
 
@@ -37,7 +43,8 @@ def register():
         if username in users:
             flash('username taken', 'danger')
         else:
-            users[username] = {'password': password}
+            hashed_password = generate_password_hash(password)
+            users[username] = {'password': hashed_password}
             flash('registered successfuly', 'success')
             return redirect(url_for('login'))
     return render_template('register.html')
