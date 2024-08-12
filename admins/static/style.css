@@ -122,7 +122,7 @@ section .signin .content .form .inputBox i {
     justify-content: space-between;
 }
 .signin .content .form .links a {
-    color: #fff;
+    color: red;
     text-decoration: none;
 }
 .signin .content .form .links a:nth-child(2) {
