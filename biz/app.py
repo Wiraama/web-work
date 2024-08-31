@@ -127,11 +127,12 @@ class Product(db.Model):
     picture = db.Column(db.LargeBinary, nullable=False)
     video = db.Column(db.LargeBinary)
     price = db.Column(db.Integer, nullable=False)
+    item_category = db.Column(db.Integer, nullable=False)
 
     def __repr__(self):
         return f'<Product {self.item_name}>'
 
-# Custom Jinja2 filter for Base64 encoding
+# Custom Jinja2 filter for Base64 encoding for video and images
 @app.template_filter('b64encode')
 def b64encode_filter(data):
     return base64.b64encode(data).decode('utf-8')
@@ -147,6 +148,7 @@ def product():
         picture = request.files['picture'].read() # reads file as binary
         video = request.files['video'].read() 
         price = request.form['price']
+        item_category = request.form['item_category']
 
         new_product = Product(
                 item_name=item_name,
@@ -154,6 +156,7 @@ def product():
                 picture=picture,
                 video=video,
                 price=price,
+                item_category=item_category,
                 )
         db.session.add(new_product)
         db.session.commit()
@@ -161,6 +164,8 @@ def product():
     # add all products from database
     products = Product.query.all()
     return render_template('add_product.html', products=products)
+
+
 # lets return image request
 @app.route('/image/<int:id>')
 def image(id):
