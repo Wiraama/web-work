@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/style_1.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+		
+	</style>
+</head>
+
+<body style="font-family: 'Baskervville SC', serif;">
+    <section style="overflow-y: auto;"> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> 
+        <div class="signin">
+            <div class="content">
+				<h1 style="color: white">Welcome To Admins</h1>
+                <h2>Register</h2>
+                <form action="/register" method="post" class="form">
+                    <div class="inputBox">
+                        <label style="color: white" for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="inputBox">
+						<label style="color: white" for="password">Password</label>
+						<input type="password" id="password" name="password" required>
+						<i><i id="togglePassword" class="fa fa-eye"></i></i>
+					</div>
+					<div class="inputBox">
+						<label style="color: white" for="confirmPassword">Confirm Password</label>
+						<input type="password" id="confirmPassword" name="confirmPassword" required>
+						<i><i id="toggleConfirmPassword" class="fa fa-eye"></i></i>
+					</div>
+					<ul id="feedback">
+						<li id="lowercase" style="color:green;" class="condition-not-met">At least one lowercase letter.</li>
+						<li id="uppercase" style="color:green;" class="condition-not-met">At least one uppercase letter.</li>
+						<li id="number" style="color:green;" class="condition-not-met">At least one number.</li>
+						<li id="special" style="color:green;" class="condition-not-met">Include at least one special character (@$!%*?&#).</li>
+						<li id="length" style="color:green;" class="condition-not-met">At least 8 characters long.</li>
+					</ul>
+					<div class="inputBox">
+						<input type="submit" value="Register">
+					</div>
+				</form>
+				<p style="color: red"><a href="{{ url_for('login') }}">Sign In</a></p>
+			</div>
+        </div>
+    </section>
+	<script>
+		const togglePassword = document.querySelector('#togglePassword');
+		const password = document.querySelector('#password');
+		togglePassword.querySelector('i');
+		
+		togglePassword.addEventListener('click', function() {
+			const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+			password.setAttribute('type',type);
+			
+			eyeIcon.classList.toggle('fa-eye')
+			eyeIcon.classList.toggle('fa-eye');
+		});
+		const toggleConfirmPassword = document.querySelector('#toggleConfirmPassword');
+		const confirmPassword = document.querySelector('#confirmPassword');
+		togglePassword.querySelector('i');
+		
+		toggleConfirmPassword.addEventListener('click', function() {
+			const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+			confirmPassword.setAttribute('type',type);
+			
+			eyeIcon.classList.toggle('fa-eye')
+			eyeIcon.classList.toggle('fa-eye');
+		});
+	</script>
+</body>
+</html>

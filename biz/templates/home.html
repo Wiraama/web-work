@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admins Store Home Page</title>
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <a href="#"><img src="static/images/logo.png" alt="logo"></a>
+      </div>
+      <div class="address">
+        <a href="#" class="deliver">Deliver</a>
+        <div class="map-icon">
+          <span class="material-symbols-outlined">location_on</span>
+          <a href="#" class="location">Kenya</a>
+        </div>
+      </div>
+
+      <div class="nav-search">
+        <select class="select-search">
+          <option>All</option>
+          <option>All Categories</option>
+          <option>Admins Devices</option>
+        </select>
+        <input type="text" placeholder="Search Admins" class="search-input">
+        <div class="search-icon">
+          <span class="material-symbols-outlined">search</span>
+        </div>
+      </div>
+
+      <div class="sign-in">
+        <a href="/login"><p>Log In</p>
+        <span>Account &amp; Lists</span></a>
+      </div>
+
+      <div class="returns">
+        <a href="#"><p>Returns</p>
+          <span>&amp; Orders</span></a>
+      </div>
+
+      <div class="cart">
+        <a href="#">
+          <span class="material-symbols-outlined cart-icon">shopping_cart</span>
+        </a>
+        <p>Cart</p>
+      </div>
+    </nav>
+    
+    <div class="banner">
+	  <p>Welcome, {{ username }} </p>
+	  <h1> New on Market</h1>
+		<div class="slider" style="--quantity: 9">
+				<div class="item" style="--position: 1"><a href="#"><img src="static/images/image_1.jpg" alt=""></a>With $30</div>
+				<div class="item" style="--position: 2"><a href="#"><img src="static/images/image_2.jpg" alt=""></a>With $23</div>
+				<div class="item" style="--position: 3"><a href="#"><img src="static/images/image_3.jpg" alt=""></a>With $31</div>
+				<div class="item" style="--position: 4"><a href="#"><img src="static/images/image_4.jpg" alt=""></a>With $34</div>
+				<div class="item" style="--position: 5"><a href="#"><img src="static/images/image_5.jpg" alt=""></a>With $45</div>
+				<div class="item" style="--position: 6"><a href="#"><img src="static/images/image_6.jpg" alt=""></a>With $12</div>
+				<div class="item" style="--position: 7"><a href="#"><img src="static/images/image_7.jpg" alt=""></a>With $21</div>
+				<div class="item" style="--position: 8"><a href="#"><img src="static/images/image_8.jpg" alt=""></a>With $16</div>
+				<div class="item" style="--position: 9"><a href="#"><img src="static/images/image_9.jpg" alt=""></a>With $18</div>
+		</div>
+	</div>
+  </header>
+  <section>
+    <h2 style="text-align: center;">Product List</h2>
+    <div class="product-list">
+        {% for product in products %}
+        <div class="product-item">
+            <h3>{{ product.item_name }}</h3>
+            <img src="data:image/jpeg;base64,{{ product.picture | b64encode }}" alt="{{ product.item_name }}">
+            {% if product.video %}
+            <video controls>
+                <source src="data:video/mp4;base64,{{ product.video | b64encode }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            {% endif %}
+            <p>{{ product.description }}</p>
+            <button onclick="#" style="padding: 10px; border: none; background-color: #5cb85c; color: white; border-radius: 4px; cursor: pointer;">
+				Price: ${{ product.price }}
+			</button>
+        </div>
+		{% endfor %}
+		
+  </section>
+
+  <section class="shop-section">
+    <div class="shop-link">
+      <h3>Shop Laptops &amp; Tablets</h3>
+      <img src="static/images/laptop.png" alt="Laptops and Tablets">
+      <a href="#">Check Out</a>
+    </div>
+    <div class="shop-link">
+      <h3>Shop Smartwatches</h3>
+      <img src="static/images/smartw.png" alt="Smartwatches">
+      <a href="#">Check Out</a>
+    </div>
+    <div class="shop-link">
+      <h3>Create with Strip Lights</h3>
+      <img src="static/images/img-3.png" alt="Strip Lights">
+      <a href="#">Check Out</a>
+    </div>
+    <div class="shop-link">
+      <h3>Clothing</h3>
+      <img src="static/images/clothing.png" alt="Clothing">
+      <a href="#">Check Out</a>
+    </div>
+  </section>
+
+  <footer>
+    <a href="#" class="footer-title">Back to top</a>
+    <div class="footer-items">
+      <ul>
+        <h3>Get to Know Us</h3>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press Releases</a></li>
+        <li><a href="#">Admins Cares</a></li>
+        <li><a href="#">Gift a Smile</a></li>
+      </ul>
+      <ul>
+        <h3>Contact with Us</h3>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+      <ul>
+        <h3>Make Money with Us</h3>
+        <li><a href="#">Sell on Admins</a></li>
+        <li><a href="#">Sell under Admins Accelerator</a></li>
+        <li><a href="#">Protect and Build Your Brand</a></li>
+        <li><a href="#">Admins Global Selling</a></li>
+      </ul>
+      <ul>
+        <h3>Let Us Help You</h3>
+        <li><a href="#">Your Account</a></li>
+        <li><a href="#">Returns Centre</a></li>
+        <li><a href="#">100% Purchase Protection</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+    </div>
+	<h2 style="text-align: center; color: green; font-family: qwitcher grypen;">@ Designed by Wiriama @</h2>
+  </footer>
+</body>
+</html>
