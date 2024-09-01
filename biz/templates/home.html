@@ -90,31 +90,8 @@
 		
   </section>
 
-  <section class="shop-section">
-    <h3>Electronics</h3>
-    <div class="product-list">
-        {% for product in products %}
-        {% if product.item_category == 1 %}
-        <div class="product-item">
-            <h3>{{ product.item_name }}</h3>
-            <img src="data:image/jpeg;base64,{{ product.picture | b64encode }}" alt="{{ product.item_name }}">
-            {% if product.video %}
-            <video controls>
-                <source src="data:video/mp4;base64,{{ product.video | b64encode }}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            {% endif %}
-            <p>{{ product.description }}</p>
-            <button onclick="addToCart({{ product.id }})" style="padding: 10px; border: none; background-color: #5cb85c; color: white; border-radius: 4px; cursor: pointer;">
-                Price: ${{ product.price }}
-            </button>
-        </div>
-        {% endif %}
-        {% endfor %}
-    </div>
-	</section>
+		<h2 style="text-align: center">Electronics</h2>
 	<section class="shop-section">
-		<h3>Electronics</h3>
 		<div class="product-list">
 			{% for product in products %}
 			{% if product.item_category == 1 %}
@@ -136,8 +113,8 @@
 			{% endfor %}
 		</div>
 	</section>
+		<h2 style="text-align: center">Men's Wear</h2>
 	<section class="shop-section">
-		<h3>Men's Wear</h3>
 		<div class="product-list">
 			{% for product in products %}
 			{% if product.item_category == 2 %}
@@ -159,8 +136,8 @@
 			{% endfor %}
 		</div>
 	</section>
+		<h2 style="text-align: center">Women's Wear</h2>
 	<section class="shop-section">
-		<h3>Women's Wear</h3>
 		<div class="product-list">
 			{% for product in products %}
 			{% if product.item_category == 3 %}
@@ -182,8 +159,8 @@
 			{% endfor %}
 		</div>
 	</section>
+		<h2 style="text-align: center">Children's Wear</h2>
 	<section class="shop-section">
-		<h3>Children's Wear</h3>
 		<div class="product-list">
 			{% for product in products %}
 			{% if product.item_category == 4 %}
@@ -205,8 +182,8 @@
 			{% endfor %}
 		</div>
 	</section>
+		<h2 style="text-align: center">House Cares</h2>
 	<section class="shop-section">
-		<h3>House Cares</h3>
 		<div class="product-list">
 			{% for product in products %}
 			{% if product.item_category == 5 %}
@@ -228,8 +205,8 @@
 			{% endfor %}
 		</div>
 	</section>
+		<h2 style="text-align: center">Products</h2>
 	<section class="shop-section">
-		<h3>Products</h3>
 		<div class="product-list">
 			{% for product in products %}
 			{% if product.item_category == 6 %}
