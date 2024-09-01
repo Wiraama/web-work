@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<!-- Coding By Wiriama -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -53,23 +53,27 @@
     </nav>
     
     <div class="banner">
-	  <p>Welcome, {{ username }} </p>
-	  <h1> New on Market</h1>
-		<div class="slider" style="--quantity: 9">
-				<div class="item" style="--position: 1"><a href="#"><img src="static/images/image_1.jpg" alt=""></a>With $30</div>
-				<div class="item" style="--position: 2"><a href="#"><img src="static/images/image_2.jpg" alt=""></a>With $23</div>
-				<div class="item" style="--position: 3"><a href="#"><img src="static/images/image_3.jpg" alt=""></a>With $31</div>
-				<div class="item" style="--position: 4"><a href="#"><img src="static/images/image_4.jpg" alt=""></a>With $34</div>
-				<div class="item" style="--position: 5"><a href="#"><img src="static/images/image_5.jpg" alt=""></a>With $45</div>
-				<div class="item" style="--position: 6"><a href="#"><img src="static/images/image_6.jpg" alt=""></a>With $12</div>
-				<div class="item" style="--position: 7"><a href="#"><img src="static/images/image_7.jpg" alt=""></a>With $21</div>
-				<div class="item" style="--position: 8"><a href="#"><img src="static/images/image_8.jpg" alt=""></a>With $16</div>
-				<div class="item" style="--position: 9"><a href="#"><img src="static/images/image_9.jpg" alt=""></a>With $18</div>
+		{% set category_7 = products | selectattr('item_category', 'equalto', 7) | list %}
+		<p>Welcome, {{ username }} </p>
+		<h1> New on Market</h1>
+		<div class="slider" style="--quantity: {{ category_7 | length }}">
+			{% for product in products %}
+			{% if product.item_category == 7 %}
+			<div class="item" style="--position: {{ loop.index }}">
+				<a href="#">
+					<img src="data:image/jpeg;base64,{{ product.picture | b64encode }}" alt="{{ product.item_name }}">
+					<button onclick="addToCart({{ product.id }})" style="padding: 10px; border: none; background-color: #5cb85c; color: white; border-radius: 4px; cursor: pointer;">
+						Price: ${{ product.price }}
+					</button>
+				</a>
+			</div>
+			{% endif %}
+			{% endfor %}
 		</div>
 	</div>
   </header>
   <section>
-    <h2 style="text-align: center;">Product List</h2>
+    <h2 style="text-align: center;">Explore With Us</h2>
     <div class="product-list">
         {% for product in products %}
         <div class="product-item">
@@ -87,7 +91,7 @@
 			</button>
         </div>
 		{% endfor %}
-		
+	</div>
   </section>
 
 		<h2 style="text-align: center">Electronics</h2>
@@ -101,13 +105,13 @@
 				{% if product.video %}
 				<video controls>
 					<source src="data:video/mp4;base64,{{ product.video | b64encode }}" type="video/mp4">
-					Your browser does not support the video tag.
+					Your browser <button onclick="addToCart({{ product.id }})" style="padding: 10px; border: none; background-color: #5cb85c; color: white; border-radius: 4px; cursor: pointer;">
+					Price: ${{ product.price }}
+				</button>does not support the video tag.
 				</video>
 				{% endif %}
 				<p>{{ product.description }}</p>
-				<button onclick="addToCart({{ product.id }})" style="padding: 10px; border: none; background-color: #5cb85c; color: white; border-radius: 4px; cursor: pointer;">
-					Price: ${{ product.price }}
-				</button>
+				
 			</div>
 			{% endif %}
 			{% endfor %}
@@ -231,39 +235,39 @@
   </section>
   
 
-  <footer>
-    <a href="#" class="footer-title">Back to top</a>
-    <div class="footer-items">
-      <ul>
-        <h3>Get to Know Us</h3>
-        <li><a href="#">About us</a></li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">Press Releases</a></li>
-        <li><a href="#">Admins Cares</a></li>
-        <li><a href="#">Gift a Smile</a></li>
-      </ul>
-      <ul>
-        <h3>Contact with Us</h3>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Instagram</a></li>
-      </ul>
-      <ul>
-        <h3>Make Money with Us</h3>
-        <li><a href="#">Sell on Admins</a></li>
-        <li><a href="#">Sell under Admins Accelerator</a></li>
-        <li><a href="#">Protect and Build Your Brand</a></li>
-        <li><a href="#">Admins Global Selling</a></li>
-      </ul>
-      <ul>
-        <h3>Let Us Help You</h3>
-        <li><a href="#">Your Account</a></li>
-        <li><a href="#">Returns Centre</a></li>
-        <li><a href="#">100% Purchase Protection</a></li>
-        <li><a href="#">Help</a></li>
-      </ul>
-    </div>
-	<h2 style="text-align: center; color: green; font-family: qwitcher grypen;">@ Designed by Wiriama @</h2>
-  </footer>
+	<footer>
+		<a href="#" class="footer-title">Back to top</a>
+		<div class="footer-items">
+		  <ul>
+			<h3>Get to Know Us</h3>
+			<li><a href="#">About us</a></li>
+			<li><a href="#">Careers</a></li>
+			<li><a href="#">Press Releases</a></li>
+			<li><a href="#">Admins Cares</a></li>
+			<li><a href="#">Gift a Smile</a></li>
+		  </ul>
+		  <ul>
+			<h3>Contact with Us</h3>
+			<li><a href="#">Facebook</a></li>
+			<li><a href="#">Twitter</a></li>
+			<li><a href="#">Instagram</a></li>
+		  </ul>
+		  <ul>
+			<h3>Make Money with Us</h3>
+			<li><a href="#">Sell on Admins</a></li>
+			<li><a href="#">Sell under Admins Accelerator</a></li>
+			<li><a href="#">Protect and Build Your Brand</a></li>
+			<li><a href="#">Admins Global Selling</a></li>
+		  </ul>
+		  <ul>
+			<h3>Let Us Help You</h3>
+			<li><a href="#">Your Account</a></li>
+			<li><a href="#">Returns Centre</a></li>
+			<li><a href="#">100% Purchase Protection</a></li>
+			<li><a href="#">Help</a></li>
+		  </ul>
+		</div>
+		<h2 style="text-align: center; color: green; font-family: qwitcher grypen;">@ Designed by Wiriama @</h2>
+	</footer>
 </body>
 </html>

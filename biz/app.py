@@ -128,6 +128,7 @@ class Product(db.Model):
     video = db.Column(db.LargeBinary)
     price = db.Column(db.Integer, nullable=False)
     item_category = db.Column(db.Integer, nullable=False)
+    # new_deal = db.Column(db.Integer)
 
     def __repr__(self):
         return f'<Product {self.item_name}>'
@@ -149,6 +150,7 @@ def product():
         video = request.files['video'].read() 
         price = request.form['price']
         item_category = request.form['item_category']
+        # new_deal = request.files['new_deal'].read()
 
         new_product = Product(
                 item_name=item_name,
@@ -156,6 +158,7 @@ def product():
                 picture=picture,
                 video=video,
                 price=price,
+                # new_deal=new_deal,
                 item_category=item_category,
                 )
         db.session.add(new_product)

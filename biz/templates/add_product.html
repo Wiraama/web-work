@@ -119,9 +119,10 @@
 				4 - Children Wears<br>
 				5 - House Cares<br>
 				6 - Products<br>
+				7 - New Deals<br>
 			</p>
             <input type="number" id="item_category" name="item_category" required>
-
+			
             <label for="picture">Picture:</label>
             <input type="file" id="picture" name="picture" accept="image/*" required>
 
@@ -148,9 +149,9 @@
                 {% endif %}
                 <p>{{ product.description }}</p>
                 <p>Price: ${{ product.price }}</p>
-				<form action="{{ url_for('delete_product', id=product.id) }}" method="post" style="margin-top: 10px;">
+				<form action="{{ url_for('delete_product', id=product.id) }}" method="post" style="margin-top: 10px">
 					<input type="hidden" name="_method" value="DELETE">
-					<button type="submit" class="btn btn-danger">Delete</button>
+					<button type="submit" class="btn btn-danger" style="background-color: red; color: white; border: black;">Delete</button>
 				</form>
             </div>
             {% endfor %}
