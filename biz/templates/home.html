@@ -105,12 +105,12 @@
 				{% if product.video %}
 				<video controls>
 					<source src="data:video/mp4;base64,{{ product.video | b64encode }}" type="video/mp4">
-					Your browser <button onclick="addToCart({{ product.id }})" style="padding: 10px; border: none; background-color: #5cb85c; color: white; border-radius: 4px; cursor: pointer;">
-					Price: ${{ product.price }}
-				</button>does not support the video tag.
 				</video>
 				{% endif %}
 				<p>{{ product.description }}</p>
+				<button onclick="addToCart({{ product.id }})" style="padding: 10px; border: none; background-color: #5cb85c; color: white; border-radius: 4px; cursor: pointer;">
+					Price: ${{ product.price }}
+				</button>
 				
 			</div>
 			{% endif %}

@@ -168,7 +168,10 @@ def product():
     products = Product.query.all()
     return render_template('add_product.html', products=products)
 
-
+# item info
+@app.route('/info')
+def info():
+    
 # lets return image request
 @app.route('/image/<int:id>')
 def image(id):

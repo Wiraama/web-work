@@ -28,9 +28,6 @@ def home():
     """ the render_template help to link with html files """
     return render_template('home.html')
 
-@app.route('/about')
-def about():
-    return render_templates('about.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

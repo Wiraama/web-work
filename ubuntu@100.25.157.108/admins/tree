@@ -1,0 +1,9 @@
+admins
+|___app.py
+|___templates/
+|   |____login.html
+|   |____register.html
+|   |____home.html
+|
+|___static/
+    |____style.css
